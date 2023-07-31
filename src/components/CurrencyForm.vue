@@ -2,14 +2,21 @@
   <form @submit.prevent="updateCurrency" v-if="newCurrency">
     <label>
       <span class="title">Офіційний курс</span>
-      <input type="text" v-model="newCurrency.rate" ref="elRateInput"/>
+      <input
+        type="text"
+        v-model="newCurrency.rate"
+        data-input="rate"
+        ref="elRateInput"/>
     </label>
     <label>
       <span class="title">Назва валюти</span>
-      <input type="text" v-model="newCurrency.txt" />
+      <input
+        type="text"
+        data-input="txt"
+        v-model="newCurrency.txt" />
     </label>
   </form>
-  <button @click="updateCurrency">Оновити</button>
+  <button data-input="submit" @click="updateCurrency">Оновити</button>
 </template>
 
 <script setup lang="ts">

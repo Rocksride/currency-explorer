@@ -40,6 +40,7 @@ onMounted(() => {
       @change="handleChange"
       :max="maxDate"
       ref="elDateInput"
+      data-input="date-input"
     />
     <Table
       v-if="currencyStore.dateCurrency.length"
