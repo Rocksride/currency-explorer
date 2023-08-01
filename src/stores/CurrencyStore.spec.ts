@@ -10,8 +10,8 @@ beforeEach(() => {
   app.use(pinia)
   setActivePinia(pinia)
 })
-describe('state', () => {
-  it('initial state is correct', () => {
+describe('CurrencyStore', () => {
+  it('should have correct initial state', () => {
     const store = useCurrencyStore()
     const { pageSize, latestCurrency, dateCurrency, changedCurrency } = store
     expect({ pageSize, latestCurrency, dateCurrency, changedCurrency }).to.deep.equal({
@@ -23,7 +23,7 @@ describe('state', () => {
   })
 })
 describe('getters', () => {
-  it('getSpecificCurrency', () => {
+  it('should get correct data from getSpecificCurrency function', () => {
     const store = useCurrencyStore()
     const initialSpecificCurrency = store.getSpecificCurrency(1)
     expect(initialSpecificCurrency).to.equal(undefined)
@@ -47,7 +47,7 @@ describe('getters', () => {
   })
 })
 describe('actions', () => {
-  it('get currency by date', async () => {
+  it('should get correct currency from getCurrencyByDate method', async () => {
     const store = useCurrencyStore()
 
     await store.getCurrencyByDate(20230704)
@@ -61,7 +61,7 @@ describe('actions', () => {
     })
   })
 
-  it('saving and getting changed currency to localStorage correct', () => {
+  it('should save and retrieve currency from localStorage successfully', () => {
     const store = useCurrencyStore()
     const data = [
       { r030: 348, txt: 'Форинт', rate: 0.10636, cc: 'HUF', exchangedate: '04.07.2023' },
@@ -74,7 +74,7 @@ describe('actions', () => {
       { r030: 392, txt: 'Єна43', rate: 0.25451, cc: 'JPY', exchangedate: '07.07.2023' }
     ])
   })
-  it('update currency item is correct', () => {
+  it('should update currency item', () => {
     const store = useCurrencyStore()
     const currency = {
       r030: 392,

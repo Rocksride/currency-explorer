@@ -4,7 +4,7 @@ import TheHeader from '../TheHeader.vue'
 import { mount } from '@vue/test-utils'
 
 describe('TheHeader', () => {
-  it('renders properly', () => {
+  it('should render navbar', () => {
     const wrapper = mount(TheHeader, {
       props: {
         linkList: [

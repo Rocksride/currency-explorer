@@ -2,12 +2,12 @@ import { expect, it, describe, expectTypeOf } from 'vitest'
 import type { CurrencyShape } from '@/types'
 import CurrencyService from '@/services/CurrencyService'
 
-describe('correct queries', () => {
-  it('has correct data shape', async () => {
+describe('CurrencyService', () => {
+  it('should have correct data shape', async () => {
     const data = await CurrencyService.getLatestCurrency()
     expectTypeOf(data).toEqualTypeOf<CurrencyShape[]>
   })
-  it('getCurrencyByDate 2023-07-04', async () => {
+  it('should return correct results /getCurrencyByDate: 2023-07-04', async () => {
     const date = 20230704
     const { data } = await CurrencyService.getCurrencyByDate(date)
     expect(data[0]).to.deep.equal({
@@ -25,7 +25,7 @@ describe('correct queries', () => {
       exchangedate: '04.07.2023'
     })
   })
-  it('getLatestCurrency returns array', async () => {
+  it('should return array from getLatestCurrency method', async () => {
     const { data } = await CurrencyService.getLatestCurrency()
     expect(Array.isArray(data)).toBe(true)
     expectTypeOf(data).toEqualTypeOf<CurrencyShape[]>
