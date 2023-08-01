@@ -44,7 +44,7 @@
             <th>Офіційний курс</th>
           </tr>
         </thead>
-        <tr v-for="curr in visibleItems" class="row" @click="$router.push(`/currency/${curr.cc}`)">
+        <tr :data-input="'tr-'+i" v-for="(curr, i) in visibleItems" class="row" @click="$router.push(`/currency/${curr.cc}`)">
           <td>{{ curr.txt }}</td>
           <td>{{ curr.r030 }}</td>
           <td>{{ curr.cc }}</td>
